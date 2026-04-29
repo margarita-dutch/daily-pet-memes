@@ -1,0 +1,18 @@
+{
+  "name": "daily-pet-memes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A tiny Slack bot that posts a wholesome cat or dog meme into #daily-pet-memes. Triggered twice a day by Render Cron Jobs.",
+  "main": "src/post.js",
+  "scripts": {
+    "post": "node src/post.js",
+    "post:test": "node src/post.js --test",
+    "start": "node src/post.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

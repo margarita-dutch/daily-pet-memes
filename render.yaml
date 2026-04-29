@@ -1,0 +1,57 @@
+# Render blueprint for daily-pet-memes.
+#
+# This declares two cron jobs (morning + afternoon Pacific time) that each
+# run `npm run post` once. Render's Cron Jobs use UTC, so the schedules below
+# are pre-converted from America/Los_Angeles.
+#
+# Note: the cron schedules below are written for Pacific Daylight Time (UTC-7),
+# which matches most of the year. During Pacific Standard Time (UTC-8), they
+# fire one hour later in local time. If you need exact PT all year, edit the
+# schedules in the Render UI when DST flips, or split into separate Render
+# services. See the README "Daylight Saving Time" note.
+#
+# You can also configure the cron jobs by hand from the Render dashboard
+# instead of using this blueprint - see the README.
+
+services: []
+
+cronJobs:
+  - name: daily-pet-memes-morning
+    runtime: node
+    plan: starter
+    schedule: "0 16 * * *"   # 09:00 America/Los_Angeles (PDT) / 08:00 PST
+    buildCommand: npm install
+    startCommand: npm run post
+    envVars:
+      - key: SLACK_BOT_TOKEN
+        sync: false
+      - key: SLACK_CHANNEL_ID
+        sync: false
+      - key: CONTENT_API_KEY
+        sync: false
+      - key: POST_TIMEZONE
+        value: America/Los_Angeles
+      - key: POSTED_STORE_PATH
+        value: /var/data/posted.json
+      - key: POSTED_HISTORY_SIZE
+        value: "200"
+
+  - name: daily-pet-memes-afternoon
+    runtime: node
+    plan: starter
+    schedule: "0 22 * * *"   # 15:00 America/Los_Angeles (PDT) / 14:00 PST
+    buildCommand: npm install
+    startCommand: npm run post
+    envVars:
+      - key: SLACK_BOT_TOKEN
+        sync: false
+      - key: SLACK_CHANNEL_ID
+        sync: false
+      - key: CONTENT_API_KEY
+        sync: false
+      - key: POST_TIMEZONE
+        value: America/Los_Angeles
+      - key: POSTED_STORE_PATH
+        value: /var/data/posted.json
+      - key: POSTED_HISTORY_SIZE
+        value: "200"
