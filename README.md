@@ -4,6 +4,26 @@ A small internal Slack bot for [Dutch.com](https://dutch.com) that posts a
 funny, wholesome cat or dog GIF into the `#daily-pet-memes` Slack channel
 twice per workday. Pets first. Always.
 
+## How this is different from `#dutch-pets`
+
+Dutch already has a wonderful `#dutch-pets` channel where employees share
+photos of their *own* cats and dogs. This bot does **not** replace or
+compete with that channel — `#dutch-pets` is the human, personal one and
+should stay that way.
+
+`#daily-pet-memes` is the *automated* counterpart:
+
+|                       | `#dutch-pets`                          | `#daily-pet-memes`                          |
+| --------------------- | -------------------------------------- | ------------------------------------------- |
+| Who posts             | Real Dutch employees                   | The bot, automatically                      |
+| What gets posted      | Photos of employees' actual pets       | Curated cat/dog meme GIFs from Giphy        |
+| Cadence               | Whenever someone feels like sharing    | Twice a workday, on schedule                |
+| Vibe                  | Personal, real-life, "meet my dog"     | Lighthearted, meme-y, "here's a smile"      |
+
+Think of `#dutch-pets` as the family photo album and `#daily-pet-memes`
+as the joke-of-the-day calendar on the breakroom wall. Both wholesome,
+both pet-themed, doing different jobs.
+
 ## What this project does
 
 Each time the app runs, it:
