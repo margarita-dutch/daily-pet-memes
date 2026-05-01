@@ -13,10 +13,9 @@
 # You can also configure the cron jobs by hand from the Render dashboard
 # instead of using this blueprint - see the README.
 
-services: []
-
-cronJobs:
-  - name: daily-pet-memes-morning
+services:
+  - type: cron
+    name: daily-pet-memes-morning
     runtime: node
     plan: starter
     schedule: "0 16 * * *"   # 09:00 America/Los_Angeles (PDT) / 08:00 PST
@@ -36,7 +35,8 @@ cronJobs:
       - key: POSTED_HISTORY_SIZE
         value: "200"
 
-  - name: daily-pet-memes-afternoon
+  - type: cron
+    name: daily-pet-memes-afternoon
     runtime: node
     plan: starter
     schedule: "0 22 * * *"   # 15:00 America/Los_Angeles (PDT) / 14:00 PST
