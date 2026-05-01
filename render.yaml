@@ -31,7 +31,7 @@ services:
       - key: POST_TIMEZONE
         value: America/Los_Angeles
       - key: POSTED_STORE_PATH
-        value: /var/data/posted.json
+        value: /tmp/posted.json
       - key: POSTED_HISTORY_SIZE
         value: "200"
 
@@ -52,6 +52,6 @@ services:
       - key: POST_TIMEZONE
         value: America/Los_Angeles
       - key: POSTED_STORE_PATH
-        value: /var/data/posted.json
+        value: /tmp/posted.json
       - key: POSTED_HISTORY_SIZE
         value: "200"
